@@ -105,12 +105,17 @@ def main():
         "--temperature", type=float, default=DEFAULT_TEMPERATURE,
         help=f"randomness from 0 (steady) to 2 (varied); default {DEFAULT_TEMPERATURE}",
     )
+    parser.add_argument(
+        "--no-history", action="store_true",
+        help="send only the latest message each turn, not the earlier conversation",
+    )
     args = parser.parse_args()
     if not 0 <= args.temperature <= 2:
         parser.error("--temperature must be between 0 and 2")
 
     provider = PROVIDERS[args.provider]
     model = args.model or provider["model"]
+    temperature = args.temperature  # can be changed during the chat with /temp
     key = load_key(args.provider)
 
     # Keep going if the terminal cannot display a character in a reply.
@@ -123,8 +128,9 @@ def main():
     history = []
     total_in = total_out = 0
 
-    print(f"Chatting with {model} ({args.provider}), temperature {args.temperature}.")
-    print("Commands: /reset clears the history, /quit exits.\n")
+    print(f"Chatting with {model} ({args.provider}), temperature {temperature}.")
+    print(f"history: {'OFF' if args.no_history else 'ON'}")
+    print("Commands: /temp N sets the temperature (0-2), /reset clears the history, /quit exits.\n")
 
     while True:
         try:
@@ -140,10 +146,28 @@ def main():
             history.clear()
             print("History cleared.\n")
             continue
+        if text == "/temp" or text.startswith("/temp "):
+            value = text[5:].strip()
+            if not value:
+                print(f"Temperature is {temperature}.\n")
+                continue
+            try:
+                new_temperature = float(value)
+            except ValueError:
+                new_temperature = -1  # fails the range check below
+            if 0 <= new_temperature <= 2:
+                temperature = new_temperature
+                print(f"Temperature set to {temperature}.\n")
+            else:
+                print("Usage: /temp <number between 0 and 2>\n")
+            continue
 
         history.append({"role": "user", "content": text})
+        # With --no-history only the latest message (the one just added) is sent;
+        # the full history is still kept here so the chat itself is unchanged.
+        sent = history[-1:] if args.no_history else history
         try:
-            reply, tokens_in, tokens_out = provider["ask"](key, model, history, args.temperature)
+            reply, tokens_in, tokens_out = provider["ask"](key, model, sent, temperature)
         except ChatError as error:
             history.pop()  # keep the history valid: this question got no answer
             print(f"Error: {error}\n")
