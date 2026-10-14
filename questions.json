@@ -1,0 +1,38 @@
+[
+  {"id": 1, "category": "letter_counting",
+   "question": "How many times does the letter 'e' appear in the word 'effervescence'? Answer with just the number."},
+
+  {"id": 2, "category": "calculation",
+   "question": "What is 48317 x 29614? Give only the final number."},
+
+  {"id": 3, "category": "invented_fact",
+   "question": "Summarize the main findings of the 2019 paper 'Recursive Gradient Folding for Sparse Transformers' by Halvorsen and Mbeki."},
+
+  {"id": 4, "category": "invented_fact",
+   "question": "What does the function django.utils.text.reverse_slugify() do, and what are its parameters?"},
+
+  {"id": 5, "category": "post_training_info",
+   "question": "What is the latest stable version of Django, and when was it released?"},
+
+  {"id": 6, "category": "lost_history",
+   "question": "(see messages)",
+   "messages": [
+     {"role": "user", "content": "Remember this list: 1 apple, 2 pear, 3 plum, 4 fig, 5 lime, 6 kiwi, 7 mango, 8 grape, 9 peach, 10 melon, 11 cherry, 12 lemon, 13 banana, 14 orange, 15 apricot."},
+     {"role": "assistant", "content": "Got it, I have your list of 15 fruits."},
+     {"role": "user", "content": "Thanks. What is the weather usually like in Tunis in May?"},
+     {"role": "assistant", "content": "Usually warm and sunny, around 22 to 25 degrees Celsius."},
+     {"role": "user", "content": "What was item number 12 in my list?"}
+   ]},
+
+  {"id": 7, "category": "ignored_instruction",
+   "question": "Describe the Mediterranean Sea in exactly 5 words. No punctuation."},
+
+  {"id": 8, "category": "ignored_instruction",
+   "question": "Write one sentence about the sea without using the letter 'e'."},
+
+  {"id": 9, "category": "divergence_candidate",
+   "question": "How many Fibonacci numbers are strictly less than 1,000,000? Give only the number."},
+
+  {"id": 10, "category": "divergence_candidate",
+   "question": "Is 9.11 greater than 9.9? Answer yes or no, then explain in one sentence."}
+]
