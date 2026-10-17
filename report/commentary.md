@@ -1,0 +1,19 @@
+Hand-written interpretation. `scripts/report.py` copies each section into `report.md`. Re-check the numbers cited here if the runs are replayed.
+
+## system_prompt
+On both providers the system prompt changed the answer as asked, wherever a simple rule could check it. "Exactly two sentences" gave exactly two sentences in 5/5 runs on Mistral and 5/5 on Gemini, against 0/5 with no system prompt. On Mistral it also cut the output from 815 to 62 tokens and the latency from 10.3 s to 2.0 s. The pirate role gave pirate vocabulary in 5/5 runs on both providers and in 0/5 runs of the other settings. The JSON-only format is where the providers differ. Gemini returned JSON exactly as requested in 4/4 successful runs. Mistral (ministral-8b) returned it exactly as requested in 0/5: all five answers were wrapped in a code fence that the prompt forbade, and all five contained raw line breaks inside strings, so a strict parser rejects them (a lenient parser reads 5/5). Latency follows output length: the settings with long answers are the slow ones. Gemini's token counts include its hidden thinking tokens (about 547 output tokens for a two-sentence answer), so they cannot be compared with Mistral's. The 2/5 and 1/4 "exactly 2 sentences" scores on the JSON-only rows come from my crude sentence counter, not from the model following that rule.
+
+## temperature
+At temperature 0.0 Mistral gave 2 different answers in 5 runs (Brew Haven three times, The Daily Grind twice). Low temperature narrowed the choice but did not make the output repeatable in this test; I did not investigate why. At 1.0 there were 3 different answers and Brew Haven still came up 3 times. At 1.5 all 5 answers were different and less usual (The Wandering Bean, Café Velvet Dawn). The effect is real but gradual: 0.0 and 1.0 differ only slightly, and the clear change appears at 1.5. Answer length (about 6 tokens) and average latency (1.5 to 1.8 s) do not depend on temperature; the single 3.7 s run at 1.5 looks like a network outlier, not an effect. Gemini is not shown: the Gemini docs say temperature is ignored on gemini-3.8-flash, and my attempt to measure it was stopped by quota errors.
+
+## max_tokens
+max_tokens is a hard cut-off, not an instruction to be brief. With 20 and with 300 tokens, all five answers were cut off (finish=length) in the middle of a sentence or list item. The model did not shorten its answer to fit the limit. With 2000 the answers ended by themselves (0/5 cut off, about 697 tokens). Latency grew with the number of tokens generated: about 1.9 s, 5.1 s and 8.8 s. Compare the "exactly two sentences" system prompt above, which produced a complete 62-token answer: to get a shorter answer, ask for it in the prompt, and use max_tokens as a safety cap on cost and time.
+
+## limits
+- Small samples: 5 runs per setting and one question per experiment. Small differences (such as 2 versus 3 distinct answers) are not reliable; only the large effects are.
+- One model per provider, selected by name: `ministral-8b-latest` is an alias that can change, and Gemini is pinned to `gemini-3.8-flash`.
+- Gemini coverage is partial. The free-tier quota (HTTP 429) stopped the Gemini runs: the JSON-only setting has 4 of 5 successful runs (the failed call is stored as run #104), the Gemini temperature experiment was not completed (its incomplete rows were deleted), and max_tokens was not run on Gemini.
+- Latency includes network time and server load; the min-max range is shown next to each average.
+- The checks are simple rules (a regular expression, a sentence counter, exact string comparison for "distinct answers"); another rule could score some answers differently.
+- Experiments 1 and 3 fix the temperature at 0.7, experiment 2 sends no other setting, so numbers should not be compared across experiments.
+- top_p was not tested. Mistral advises changing temperature or top_p, not both, so I changed one thing at a time.
