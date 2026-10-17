@@ -26,6 +26,7 @@ export default function RunsTable({ runs }) {
               <th>In</th>
               <th>Out</th>
               <th>ms</th>
+              <th>1st tok ms</th>
               <th>Finish</th>
               <th>Question</th>
               <th>Answer / error</th>
@@ -43,6 +44,7 @@ export default function RunsTable({ runs }) {
                 <td>{show(run.input_tokens)}</td>
                 <td>{show(run.output_tokens)}</td>
                 <td>{show(run.latency_ms)}</td>
+                <td>{show(run.ttft_ms)}</td>
                 <td>{show(run.finish_reason)}</td>
                 <td title={run.question}>{shorten(run.question, 40)}</td>
                 <td title={run.error || run.answer}>{shorten(run.error || run.answer, 60)}</td>

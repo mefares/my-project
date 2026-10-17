@@ -106,6 +106,24 @@ button {
   cursor: pointer;
 }
 
+.send-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+label.inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 12px 0 0;
+}
+
+label.inline input {
+  width: auto;
+  margin: 0;
+}
+
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;

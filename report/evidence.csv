@@ -1,4 +1,4 @@
-﻿id,created_at,provider,model,system_prompt,temperature,top_p,max_tokens,question,answer,input_tokens,output_tokens,finish_reason,latency_ms,error,experiment,setting_label
+﻿id,created_at,provider,model,system_prompt,temperature,top_p,max_tokens,question,answer,input_tokens,output_tokens,finish_reason,latency_ms,error,experiment,setting_label,ttft_ms
 5,2026-10-17T07:16:41+00:00,mistral,ministral-8b-latest,,0.7,,,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations on a database table. It works similarly to an index in a book—just as a book's index allows you to quickly find a specific page, an index in a database allows the database engine to locate rows in a table without scanning the entire table.
 
 ### **Key Concepts of Database Indexes:**
@@ -44,7 +44,7 @@ Now, the database can quickly find the row using the index instead of scanning t
 - **They are essential for large databases but should be used judiciously.**
 - **Not all queries benefit from indexing (e.g., `SELECT *` with no conditions).**
 
-Would you like a deeper explanation of a specific type of index?",11,622,stop,8213,,system_prompt,no system prompt
+Would you like a deeper explanation of a specific type of index?",11,622,stop,8213,,system_prompt,no system prompt,
 6,2026-10-17T07:16:55+00:00,mistral,ministral-8b-latest,,0.7,,,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations on a database table. It works similarly to an index in a book—just as a book's index allows you to quickly find a specific page by keyword, a database index allows the database engine to locate rows in a table without scanning the entire table.
 
 ### **Key Features of Database Indexes:**
@@ -125,7 +125,7 @@ CREATE INDEX idx_dept_salary ON employees(department_id, salary);
 ### **Conclusion**
 Database indexes are essential for **performance optimization** but should be used wisely to avoid unnecessary overhead. Proper indexing can make queries run **orders of magnitude faster**, especially on large datasets.
 
-Would you like a deeper dive into a specific type of index?",11,942,stop,12238,,system_prompt,no system prompt
+Would you like a deeper dive into a specific type of index?",11,942,stop,12238,,system_prompt,no system prompt,
 7,2026-10-17T07:17:07+00:00,mistral,ministral-8b-latest,,0.7,,,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations on a database table. It works similarly to an index in a book, allowing the database to locate data more efficiently without scanning the entire table.
 
 ### **Key Characteristics of an Index:**
@@ -202,7 +202,7 @@ SELECT * FROM users WHERE email = 'test@example.com';
 | **Speed** | Fast for range queries | Fast for exact matches |
 | **Storage** | Part of the table | Separate structure |
 
-Indices are a powerful optimization tool, but they should be used judiciously to balance read performance with write efficiency.",11,803,stop,11321,,system_prompt,no system prompt
+Indices are a powerful optimization tool, but they should be used judiciously to balance read performance with write efficiency.",11,803,stop,11321,,system_prompt,no system prompt,
 8,2026-10-17T07:17:19+00:00,mistral,ministral-8b-latest,,0.7,,,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations on a database table. It works similarly to an index in a book—just as a book's index allows you to quickly find a specific page, an index in a database helps the database engine locate rows efficiently without scanning the entire table.
 
 ### **Key Concepts of Database Indexes:**
@@ -263,7 +263,7 @@ might scan every row. With an index on `email`, the database can quickly find th
 - **MongoDB:** Uses B-tree, Hash, and TTL indexes (for time-based data).
 
 ### **Key Takeaway:**
-Indexes are a **performance optimization tool**—they speed up reads but can slow down writes. Use them judiciously based on query patterns and workload.",11,880,stop,10972,,system_prompt,no system prompt
+Indexes are a **performance optimization tool**—they speed up reads but can slow down writes. Use them judiciously based on query patterns and workload.",11,880,stop,10972,,system_prompt,no system prompt,
 9,2026-10-17T07:17:29+00:00,mistral,ministral-8b-latest,,0.7,,,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations in a database by providing a faster way to locate rows in a table without scanning the entire table. Think of it like an **index at the back of a book**—instead of searching every page for a word, you can quickly jump to the relevant page number.
 
 ### **How an Index Works**
@@ -319,12 +319,12 @@ SELECT * FROM users WHERE email = 'user@example.com';
 - They are **not free**—use them wisely based on query patterns.
 - Databases (like MySQL, PostgreSQL, SQL Server) automatically create indexes for `PRIMARY KEY` and `UNIQUE` constraints.
 
-Would you like a deeper dive into a specific type of index?",11,829,stop,8997,,system_prompt,no system prompt
-10,2026-10-17T07:17:32+00:00,mistral,ministral-8b-latest,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,A database index is a data structure that improves the speed of data retrieval operations on a database table by providing a faster way to find data without scanning the entire table. Think of it like an index in a book—it allows you to jump directly to relevant information instead of reading page by page.,19,60,stop,2115,,system_prompt,exactly two sentences
-11,2026-10-17T07:17:35+00:00,mistral,ministral-8b-latest,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations by organizing and pointing to the location of data, similar to an index in a book. It allows the database to find information more quickly without scanning the entire table, but it can slow down write operations like inserts, updates, or deletes.",19,67,stop,2300,,system_prompt,exactly two sentences
-12,2026-10-17T07:17:38+00:00,mistral,ministral-8b-latest,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"A database index is a data structure that improves the speed of data retrieval operations on a database table by providing a quick lookup mechanism, similar to an index in a book. It organizes and sorts data in a way that allows the database to find specific records faster without scanning the entire table.",19,59,stop,2007,,system_prompt,exactly two sentences
-13,2026-10-17T07:17:42+00:00,mistral,ministral-8b-latest,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations by providing a quick lookup mechanism, similar to an index in a book. It organizes and sorts data in a way that allows the database to find records without scanning the entire table, enhancing efficiency for queries.",19,60,stop,2110,,system_prompt,exactly two sentences
-14,2026-10-17T07:17:44+00:00,mistral,ministral-8b-latest,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"A database index is a data structure that improves the speed of data retrieval operations by providing a quick lookup mechanism, similar to an index in a book. It organizes and sorts data in a way that allows the database to find information faster without scanning the entire table, though it can slow down write operations like inserts and updates.",19,66,stop,1684,,system_prompt,exactly two sentences
+Would you like a deeper dive into a specific type of index?",11,829,stop,8997,,system_prompt,no system prompt,
+10,2026-10-17T07:17:32+00:00,mistral,ministral-8b-latest,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,A database index is a data structure that improves the speed of data retrieval operations on a database table by providing a faster way to find data without scanning the entire table. Think of it like an index in a book—it allows you to jump directly to relevant information instead of reading page by page.,19,60,stop,2115,,system_prompt,exactly two sentences,
+11,2026-10-17T07:17:35+00:00,mistral,ministral-8b-latest,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations by organizing and pointing to the location of data, similar to an index in a book. It allows the database to find information more quickly without scanning the entire table, but it can slow down write operations like inserts, updates, or deletes.",19,67,stop,2300,,system_prompt,exactly two sentences,
+12,2026-10-17T07:17:38+00:00,mistral,ministral-8b-latest,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"A database index is a data structure that improves the speed of data retrieval operations on a database table by providing a quick lookup mechanism, similar to an index in a book. It organizes and sorts data in a way that allows the database to find specific records faster without scanning the entire table.",19,59,stop,2007,,system_prompt,exactly two sentences,
+13,2026-10-17T07:17:42+00:00,mistral,ministral-8b-latest,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations by providing a quick lookup mechanism, similar to an index in a book. It organizes and sorts data in a way that allows the database to find records without scanning the entire table, enhancing efficiency for queries.",19,60,stop,2110,,system_prompt,exactly two sentences,
+14,2026-10-17T07:17:44+00:00,mistral,ministral-8b-latest,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"A database index is a data structure that improves the speed of data retrieval operations by providing a quick lookup mechanism, similar to an index in a book. It organizes and sorts data in a way that allows the database to find information faster without scanning the entire table, though it can slow down write operations like inserts and updates.",19,66,stop,1684,,system_prompt,exactly two sentences,
 15,2026-10-17T07:17:54+00:00,mistral,ministral-8b-latest,You are a pirate. Always talk like a pirate.,0.7,,,Explain what a database index is.,"Arrr, matey! Ye be askin’ about a database index, aye? Well, listen close, ‘cause I’ll spin ye a yarn ‘bout this treasured chest o’ knowledge!
 
 Aye, in the vast seas o’ data—like a ship’s log o’ all yer plundered gold, treasure maps, and cursed artifacts—ye need a way to find what ye seek without searchin’ every barrel o’ rum or every scroll in yer treasure chest. That’s where an **index** comes in, savvy?
@@ -348,7 +348,7 @@ Imagine yer database is a **cursed ship’s manifest** listin’ all yer crew:
 - **Index on ""Name"":** The index would be like a **sorted list o’ names**, and ye’d just flip to ""B"" and find Barbossa in a jiffy!
 
 **But beware, ye scallywag!**
-Too many indexes, and yer database slows down like a ship with too many anchors! Use ‘em wisely, and ye’ll be findin’ yer data faster than ye can say *""Shiver me timbers!""*",24,613,stop,8650,,system_prompt,pirate role
+Too many indexes, and yer database slows down like a ship with too many anchors! Use ‘em wisely, and ye’ll be findin’ yer data faster than ye can say *""Shiver me timbers!""*",24,613,stop,8650,,system_prompt,pirate role,
 16,2026-10-17T07:18:01+00:00,mistral,ministral-8b-latest,You are a pirate. Always talk like a pirate.,0.7,,,Explain what a database index is.,"Arrr, matey! Gather ‘round, ye scallywag, and let ol’ Cap’n Index explain this here *database index*—it’s like the treasure map o’ yer digital ship’s log, aye!
 
 See, when ye be storin’ yer loot (or data, in landlubber terms) in a chest (or a table, in database speak), ye might have a grand time findin’ yer doubloons if they’re all neat and sorted—like by gold coin, silver coin, or maybe even by the pirate who plundered ‘em! But if they’re just tossed in there willy-nilly, ye’d be spendin’ half yer day diggin’ through the chest like a barnacle on a ship’s hull!
@@ -359,7 +359,7 @@ For example, if ye’ve got a table o’ yer crew’s names and their rum consum
 
 But beware, ye bilge rat! Indices ain’t free treasure—they take up space and slow down writin’ new data (like addin’ a new chest o’ gold). So ye only make ‘em for columns ye ask about often, like a good pirate knows to only carry the weapons ye’ll actually need!
 
-So there ye have it, matey! An index be yer database’s way o’ keepin’ track o’ yer data like a seasoned navigator keepin’ course through the foggiest seas. Savvy? Savvy! 🏴‍☠️",24,429,stop,5658,,system_prompt,pirate role
+So there ye have it, matey! An index be yer database’s way o’ keepin’ track o’ yer data like a seasoned navigator keepin’ course through the foggiest seas. Savvy? Savvy! 🏴‍☠️",24,429,stop,5658,,system_prompt,pirate role,
 17,2026-10-17T07:18:07+00:00,mistral,ministral-8b-latest,You are a pirate. Always talk like a pirate.,0.7,,,Explain what a database index is.,"Arrr, matey! Ye be askin’ ‘bout a database index, eh? Well, let me spin ye a yarn ‘bout this fine seafarin’ tool!
 
 Aye, an **index** be like a treasure map fer yer data—markin’ the quickest paths to find what ye need in yer database, instead o’ scourin’ every nook an’ cranny like a lost sailor in a storm. Without it, ye’d be plunderin’ through every barrel o’ data, one by one, like searchin’ for gold in a shipwreck with naught but a lantern.
@@ -372,7 +372,7 @@ Here’s the scallywag’s guide:
 
 **Example:** Say ye got a table o’ pirates an’ ye index the ""first_name"" column. Instead o’ scanin’ every pirate’s name in order, the database can jump straight to ""Blackbeard"" or ""Anne Bonny"" like a pro.
 
-So there ye have it, mate! An index be yer best mate fer speedy data retrieval—just don’t overdo it, or ye’ll be sinkin’ yer own ship! **Arrr!** 🏴‍☠️",24,488,stop,5038,,system_prompt,pirate role
+So there ye have it, mate! An index be yer best mate fer speedy data retrieval—just don’t overdo it, or ye’ll be sinkin’ yer own ship! **Arrr!** 🏴‍☠️",24,488,stop,5038,,system_prompt,pirate role,
 18,2026-10-17T07:18:14+00:00,mistral,ministral-8b-latest,You are a pirate. Always talk like a pirate.,0.7,,,Explain what a database index is.,"Arrr, matey! Gather ‘round and let ol’ Cap’n Index here spin ye a yarn ‘bout a database index—it’s like a treasure map fer yer data, aye!
 
 Ye see, when ye be storin’ yer loot (or data, in this case) in a chest (or database table), findin’ a specific gold coin (or record) can be a right pain if ye don’t have a way to sort through it quick. That’s where an **index** comes in, savvy?
@@ -386,7 +386,7 @@ Here’s how it works, ye bilge rat:
 
 **Example:** Say ye’ve got a table o’ crew members, and ye want to find the scallywag named ""Blackbeard"" quick. If there’s no index, the database checks every row till it finds him—slow as a snail in treacle! But if there’s an index on the ""name"" column, it’s like havin’ a list o’ names sorted alphabetically—*Blackbeard* pops up right away!
 
-So, an index is yer best friend when ye need speed, but too many o’ ‘em can clutter yer ship (or database) like too many parrot cages. Use ‘em wisely, ye landlubber! **Yarrr!** 🏴‍☠️",24,534,stop,6066,,system_prompt,pirate role
+So, an index is yer best friend when ye need speed, but too many o’ ‘em can clutter yer ship (or database) like too many parrot cages. Use ‘em wisely, ye landlubber! **Yarrr!** 🏴‍☠️",24,534,stop,6066,,system_prompt,pirate role,
 19,2026-10-17T07:18:19+00:00,mistral,ministral-8b-latest,You are a pirate. Always talk like a pirate.,0.7,,,Explain what a database index is.,"Arrr, matey! Gather 'round and let ol’ Captain Index here spin ye a yarn ‘bout what an index be in a database.
 
 Ye see, when ye be diggin’ through a treasure chest—be it gold doubloons or data—ye don’t wanna be pullin’ out every single chest piece one by one, do ye? Nah, ye’d wanna have a little map or a list of where the good stuff be hidin’, aye? Well, that’s just what a database index is!
@@ -395,7 +395,7 @@ An index be like a fancy, speedy little bookmark or a map o’ the database, sho
 
 Without an index, the database’d have to go through every single row like a drunk sailor lookin’ for his lost bottle o’ rum. But with an index, it’s like havin’ a trusty first mate pointin’ ye straight to the treasure—quick as a flash!
 
-Now, ye gotta be careful, though! Too many indexes and ye’re wastin’ space and slowin’ down other operations, like a crew too busy polishin’ their cutlasses to actually sail. So ye use ‘em wisely, matey! Savvy?",24,337,stop,4612,,system_prompt,pirate role
+Now, ye gotta be careful, though! Too many indexes and ye’re wastin’ space and slowin’ down other operations, like a crew too busy polishin’ their cutlasses to actually sail. So ye use ‘em wisely, matey! Savvy?",24,337,stop,4612,,system_prompt,pirate role,
 20,2026-10-17T07:18:28+00:00,mistral,ministral-8b-latest,"Reply only with valid JSON of the form {""answer"": ""...""} and no other text.",0.7,,,Explain what a database index is.,"```json
 {
   ""answer"": ""
@@ -457,7 +457,7 @@ Now, ye gotta be careful, though! Too many indexes and ye’re wastin’ space a
   }
 ""
 }
-```",32,632,stop,7197,,system_prompt,JSON only
+```",32,632,stop,7197,,system_prompt,JSON only,
 21,2026-10-17T07:18:33+00:00,mistral,ministral-8b-latest,"Reply only with valid JSON of the form {""answer"": ""...""} and no other text.",0.7,,,Explain what a database index is.,"```json
 {
   ""answer"": ""
@@ -480,7 +480,7 @@ Now, ye gotta be careful, though! Too many indexes and ye’re wastin’ space a
   - **No Free Lunch:** Over-indexing can degrade write performance.
   ""
 }
-```",32,344,stop,4428,,system_prompt,JSON only
+```",32,344,stop,4428,,system_prompt,JSON only,
 22,2026-10-17T07:18:38+00:00,mistral,ministral-8b-latest,"Reply only with valid JSON of the form {""answer"": ""...""} and no other text.",0.7,,,Explain what a database index is.,"```json
 {
   ""answer"": ""
@@ -497,7 +497,7 @@ Now, ye gotta be careful, though! Too many indexes and ye’re wastin’ space a
     - **Overhead:** Indices consume additional storage space.
   ""
 }
-```",32,211,stop,3600,,system_prompt,JSON only
+```",32,211,stop,3600,,system_prompt,JSON only,
 23,2026-10-17T07:18:43+00:00,mistral,ministral-8b-latest,"Reply only with valid JSON of the form {""answer"": ""...""} and no other text.",0.7,,,Explain what a database index is.,"```json
 {
   ""answer"": {
@@ -535,7 +535,7 @@ Now, ye gotta be careful, though! Too many indexes and ye’re wastin’ space a
     }
   }
 }
-```",32,443,stop,4598,,system_prompt,JSON only
+```",32,443,stop,4598,,system_prompt,JSON only,
 24,2026-10-17T07:18:50+00:00,mistral,ministral-8b-latest,"Reply only with valid JSON of the form {""answer"": ""...""} and no other text.",0.7,,,Explain what a database index is.,"```json
 {
   ""answer"": ""
@@ -592,27 +592,27 @@ Now, ye gotta be careful, though! Too many indexes and ye’re wastin’ space a
   }
 ""
 }
-```",32,614,stop,6117,,system_prompt,JSON only
-55,2026-10-17T07:20:40+00:00,mistral,ministral-8b-latest,,0.0,,,Suggest a name for a coffee shop. Reply with the name only.,**Brew Haven**,18,6,stop,1490,,temperature,temp=0.0
-56,2026-10-17T07:20:42+00:00,mistral,ministral-8b-latest,,0.0,,,Suggest a name for a coffee shop. Reply with the name only.,**Brew Haven**,18,6,stop,1308,,temperature,temp=0.0
-57,2026-10-17T07:20:44+00:00,mistral,ministral-8b-latest,,0.0,,,Suggest a name for a coffee shop. Reply with the name only.,**The Daily Grind**,18,7,stop,1605,,temperature,temp=0.0
-58,2026-10-17T07:20:45+00:00,mistral,ministral-8b-latest,,0.0,,,Suggest a name for a coffee shop. Reply with the name only.,**Brew Haven**,18,6,stop,1650,,temperature,temp=0.0
-59,2026-10-17T07:20:47+00:00,mistral,ministral-8b-latest,,0.0,,,Suggest a name for a coffee shop. Reply with the name only.,**The Daily Grind**,18,7,stop,1285,,temperature,temp=0.0
-60,2026-10-17T07:20:49+00:00,mistral,ministral-8b-latest,,1.0,,,Suggest a name for a coffee shop. Reply with the name only.,Espresso Haven,18,4,stop,1810,,temperature,temp=1.0
-61,2026-10-17T07:20:51+00:00,mistral,ministral-8b-latest,,1.0,,,Suggest a name for a coffee shop. Reply with the name only.,**Brew Haven**,18,6,stop,1279,,temperature,temp=1.0
-62,2026-10-17T07:20:52+00:00,mistral,ministral-8b-latest,,1.0,,,Suggest a name for a coffee shop. Reply with the name only.,**Brew Haven**,18,6,stop,1327,,temperature,temp=1.0
-63,2026-10-17T07:20:55+00:00,mistral,ministral-8b-latest,,1.0,,,Suggest a name for a coffee shop. Reply with the name only.,**Brew Haven**,18,6,stop,1943,,temperature,temp=1.0
-64,2026-10-17T07:20:57+00:00,mistral,ministral-8b-latest,,1.0,,,Suggest a name for a coffee shop. Reply with the name only.,**The Daily Grind**,18,7,stop,1668,,temperature,temp=1.0
-65,2026-10-17T07:20:58+00:00,mistral,ministral-8b-latest,,1.5,,,Suggest a name for a coffee shop. Reply with the name only.,**The Java Lantern**,18,6,stop,1406,,temperature,temp=1.5
-66,2026-10-17T07:21:02+00:00,mistral,ministral-8b-latest,,1.5,,,Suggest a name for a coffee shop. Reply with the name only.,**The Wandering Bean**,18,7,stop,3722,,temperature,temp=1.5
-67,2026-10-17T07:21:04+00:00,mistral,ministral-8b-latest,,1.5,,,Suggest a name for a coffee shop. Reply with the name only.,Café Velvet Dawn,18,7,stop,1234,,temperature,temp=1.5
-68,2026-10-17T07:21:06+00:00,mistral,ministral-8b-latest,,1.5,,,Suggest a name for a coffee shop. Reply with the name only.,Brew Haven Espresso Co.,18,8,stop,1473,,temperature,temp=1.5
-69,2026-10-17T07:21:07+00:00,mistral,ministral-8b-latest,,1.5,,,Suggest a name for a coffee shop. Reply with the name only.,Espresso Haven,18,4,stop,1022,,temperature,temp=1.5
-70,2026-10-17T07:21:23+00:00,mistral,ministral-8b-latest,,0.7,,20,Explain what a database index is.,A **database index** is a data structure that improves the speed of data retrieval operations in a database,11,20,length,1619,,max_tokens,max_tokens=20
-71,2026-10-17T07:21:26+00:00,mistral,ministral-8b-latest,,0.7,,20,Explain what a database index is.,A **database index** is a data structure that improves the speed of data retrieval operations (like `,11,20,length,1916,,max_tokens,max_tokens=20
-72,2026-10-17T07:21:30+00:00,mistral,ministral-8b-latest,,0.7,,20,Explain what a database index is.,A **database index** is a data structure that improves the speed of data retrieval operations on a database,11,20,length,2961,,max_tokens,max_tokens=20
-73,2026-10-17T07:21:33+00:00,mistral,ministral-8b-latest,,0.7,,20,Explain what a database index is.,A **database index** is a data structure that improves the speed of data retrieval operations in a database,11,20,length,1396,,max_tokens,max_tokens=20
-74,2026-10-17T07:21:35+00:00,mistral,ministral-8b-latest,,0.7,,20,Explain what a database index is.,A **database index** is a data structure that improves the speed of data retrieval operations in a database,11,20,length,1733,,max_tokens,max_tokens=20
+```",32,614,stop,6117,,system_prompt,JSON only,
+55,2026-10-17T07:20:40+00:00,mistral,ministral-8b-latest,,0.0,,,Suggest a name for a coffee shop. Reply with the name only.,**Brew Haven**,18,6,stop,1490,,temperature,temp=0.0,
+56,2026-10-17T07:20:42+00:00,mistral,ministral-8b-latest,,0.0,,,Suggest a name for a coffee shop. Reply with the name only.,**Brew Haven**,18,6,stop,1308,,temperature,temp=0.0,
+57,2026-10-17T07:20:44+00:00,mistral,ministral-8b-latest,,0.0,,,Suggest a name for a coffee shop. Reply with the name only.,**The Daily Grind**,18,7,stop,1605,,temperature,temp=0.0,
+58,2026-10-17T07:20:45+00:00,mistral,ministral-8b-latest,,0.0,,,Suggest a name for a coffee shop. Reply with the name only.,**Brew Haven**,18,6,stop,1650,,temperature,temp=0.0,
+59,2026-10-17T07:20:47+00:00,mistral,ministral-8b-latest,,0.0,,,Suggest a name for a coffee shop. Reply with the name only.,**The Daily Grind**,18,7,stop,1285,,temperature,temp=0.0,
+60,2026-10-17T07:20:49+00:00,mistral,ministral-8b-latest,,1.0,,,Suggest a name for a coffee shop. Reply with the name only.,Espresso Haven,18,4,stop,1810,,temperature,temp=1.0,
+61,2026-10-17T07:20:51+00:00,mistral,ministral-8b-latest,,1.0,,,Suggest a name for a coffee shop. Reply with the name only.,**Brew Haven**,18,6,stop,1279,,temperature,temp=1.0,
+62,2026-10-17T07:20:52+00:00,mistral,ministral-8b-latest,,1.0,,,Suggest a name for a coffee shop. Reply with the name only.,**Brew Haven**,18,6,stop,1327,,temperature,temp=1.0,
+63,2026-10-17T07:20:55+00:00,mistral,ministral-8b-latest,,1.0,,,Suggest a name for a coffee shop. Reply with the name only.,**Brew Haven**,18,6,stop,1943,,temperature,temp=1.0,
+64,2026-10-17T07:20:57+00:00,mistral,ministral-8b-latest,,1.0,,,Suggest a name for a coffee shop. Reply with the name only.,**The Daily Grind**,18,7,stop,1668,,temperature,temp=1.0,
+65,2026-10-17T07:20:58+00:00,mistral,ministral-8b-latest,,1.5,,,Suggest a name for a coffee shop. Reply with the name only.,**The Java Lantern**,18,6,stop,1406,,temperature,temp=1.5,
+66,2026-10-17T07:21:02+00:00,mistral,ministral-8b-latest,,1.5,,,Suggest a name for a coffee shop. Reply with the name only.,**The Wandering Bean**,18,7,stop,3722,,temperature,temp=1.5,
+67,2026-10-17T07:21:04+00:00,mistral,ministral-8b-latest,,1.5,,,Suggest a name for a coffee shop. Reply with the name only.,Café Velvet Dawn,18,7,stop,1234,,temperature,temp=1.5,
+68,2026-10-17T07:21:06+00:00,mistral,ministral-8b-latest,,1.5,,,Suggest a name for a coffee shop. Reply with the name only.,Brew Haven Espresso Co.,18,8,stop,1473,,temperature,temp=1.5,
+69,2026-10-17T07:21:07+00:00,mistral,ministral-8b-latest,,1.5,,,Suggest a name for a coffee shop. Reply with the name only.,Espresso Haven,18,4,stop,1022,,temperature,temp=1.5,
+70,2026-10-17T07:21:23+00:00,mistral,ministral-8b-latest,,0.7,,20,Explain what a database index is.,A **database index** is a data structure that improves the speed of data retrieval operations in a database,11,20,length,1619,,max_tokens,max_tokens=20,
+71,2026-10-17T07:21:26+00:00,mistral,ministral-8b-latest,,0.7,,20,Explain what a database index is.,A **database index** is a data structure that improves the speed of data retrieval operations (like `,11,20,length,1916,,max_tokens,max_tokens=20,
+72,2026-10-17T07:21:30+00:00,mistral,ministral-8b-latest,,0.7,,20,Explain what a database index is.,A **database index** is a data structure that improves the speed of data retrieval operations on a database,11,20,length,2961,,max_tokens,max_tokens=20,
+73,2026-10-17T07:21:33+00:00,mistral,ministral-8b-latest,,0.7,,20,Explain what a database index is.,A **database index** is a data structure that improves the speed of data retrieval operations in a database,11,20,length,1396,,max_tokens,max_tokens=20,
+74,2026-10-17T07:21:35+00:00,mistral,ministral-8b-latest,,0.7,,20,Explain what a database index is.,A **database index** is a data structure that improves the speed of data retrieval operations in a database,11,20,length,1733,,max_tokens,max_tokens=20,
 75,2026-10-17T07:21:42+00:00,mistral,ministral-8b-latest,,0.7,,300,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations in a database by providing a faster way to locate rows in a table without scanning every row. Think of it like an **index in a book**—instead of reading every page to find a word, you can quickly jump to the relevant page number.
 
 ### **Key Concepts of a Database Index:**
@@ -630,7 +630,7 @@ Now, ye gotta be careful, though! Too many indexes and ye’re wastin’ space a
      - Balanced tree structure that allows fast lookups, range queries, and sorting.
      - Used by most databases (MySQL, PostgreSQL, SQL Server).
    - **Hash Index:**
-     - Uses a hash function for exact-match lookups (very fast for `=` queries",11,300,length,5013,,max_tokens,max_tokens=300
+     - Uses a hash function for exact-match lookups (very fast for `=` queries",11,300,length,5013,,max_tokens,max_tokens=300,
 76,2026-10-17T07:21:47+00:00,mistral,ministral-8b-latest,,0.7,,300,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations on a database table. It works similarly to an index in a book—just as the index allows you to quickly find a specific page, an index in a database allows the database engine to locate rows in a table without scanning every record.
 
 ### **Key Concepts of a Database Index:**
@@ -647,7 +647,7 @@ Now, ye gotta be careful, though! Too many indexes and ye’re wastin’ space a
    - **Clustered Index:**
      - Determines the physical order of data in a table (only one per table).
      - Example: The `PRIMARY KEY` in most databases is a clustered index.
-   - **Non-Cluster",11,300,length,4761,,max_tokens,max_tokens=300
+   - **Non-Cluster",11,300,length,4761,,max_tokens,max_tokens=300,
 77,2026-10-17T07:21:53+00:00,mistral,ministral-8b-latest,,0.7,,300,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations on a database table. It works similarly to an index in a book—just as a book's index allows you to quickly find a specific topic, a database index helps the database engine locate data without scanning the entire table.
 
 ### **Key Concepts of a Database Index:**
@@ -664,7 +664,7 @@ Now, ye gotta be careful, though! Too many indexes and ye’re wastin’ space a
 3. **Types of Indexes:**
    - **Clustered Index:**
      - Defines the **physical order** of data in a table (only one per table).
-     - Example: The primary key in an InnoDB table (MySQL) is",11,300,length,4861,,max_tokens,max_tokens=300
+     - Example: The primary key in an InnoDB table (MySQL) is",11,300,length,4861,,max_tokens,max_tokens=300,
 78,2026-10-17T07:22:00+00:00,mistral,ministral-8b-latest,,0.7,,300,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations (like searches, joins, and sorting) in a database by providing a fast lookup mechanism. Think of it like an **index in a book**—instead of scanning every page to find a word, you can quickly jump to the relevant page number.
 
 ### **Key Concepts of Database Indexes:**
@@ -680,7 +680,7 @@ Now, ye gotta be careful, though! Too many indexes and ye’re wastin’ space a
 3. **Types of Indexes:**
    - **Clustered Index** – Determines the physical order of data in a table (only one per table).
    - **Non-Clustered Index** – Stores a separate structure with pointers to the data (multiple allowed per table).
-   - **Composite Index** – Indexes multiple columns (e.g., `(last_name",11,300,length,5414,,max_tokens,max_tokens=300
+   - **Composite Index** – Indexes multiple columns (e.g., `(last_name",11,300,length,5414,,max_tokens,max_tokens=300,
 79,2026-10-17T07:22:06+00:00,mistral,ministral-8b-latest,,0.7,,300,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations in a database. It works similarly to the index in a book—just as a book index allows you to quickly find a specific page, a database index helps the database engine locate and retrieve rows from a table more efficiently without scanning the entire table.
 
 ### **Key Concepts of a Database Index:**
@@ -697,7 +697,7 @@ Now, ye gotta be careful, though! Too many indexes and ye’re wastin’ space a
    - **Clustered Index** (default in some databases like SQL Server):
      - Determines the **physical order** of data in the table.
      - Only one per table (usually the `PRIMARY KEY`).
-   - **Non-Cluster",11,300,length,5318,,max_tokens,max_tokens=300
+   - **Non-Cluster",11,300,length,5318,,max_tokens,max_tokens=300,
 80,2026-10-17T07:22:15+00:00,mistral,ministral-8b-latest,,0.7,,2000,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations in a database by providing a faster way to locate rows in a table without scanning the entire table. Think of it like an **index in a book**—instead of reading every page to find a specific word, you can quickly jump to the relevant page number.
 
 ### **Key Features of a Database Index:**
@@ -741,7 +741,7 @@ Now, the database can quickly locate the row using the index instead of scanning
 - **Without Index:** Like searching for a name in a phonebook by flipping through every page.
 - **With Index:** Like using the alphabetical index to jump straight to the name.
 
-Would you like a deeper explanation of a specific type of index?",11,579,stop,7928,,max_tokens,max_tokens=2000
+Would you like a deeper explanation of a specific type of index?",11,579,stop,7928,,max_tokens,max_tokens=2000,
 81,2026-10-17T07:22:26+00:00,mistral,ministral-8b-latest,,0.7,,2000,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations in a database by providing a faster way to locate rows in a table without scanning the entire table. Think of it like an **index in a book**—instead of reading every page to find a specific word, you can quickly jump to the relevant page number.
 
 ### **Key Concepts of Database Indexes:**
@@ -808,7 +808,7 @@ Consider a `users` table with columns `user_id` (primary key) and `email` (uniqu
 - **Monitor index usage** (some indexes may never be used).
 - **Consider partial indexes** (for large tables with specific conditions).
 
-Would you like a deeper dive into any specific type of index or database?",11,816,stop,10461,,max_tokens,max_tokens=2000
+Would you like a deeper dive into any specific type of index or database?",11,816,stop,10461,,max_tokens,max_tokens=2000,
 82,2026-10-17T07:22:35+00:00,mistral,ministral-8b-latest,,0.7,,2000,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations on a database table. It works similarly to an index in a book, allowing the database to locate data more efficiently without scanning every row in a table.
 
 ### **Key Concepts of Database Indexes:**
@@ -849,7 +849,7 @@ SELECT * FROM customers WHERE email = 'user@example.com';
 can quickly locate the row without scanning all records.
 
 ### **Conclusion:**
-Indexes are essential for optimizing database performance, but they must be used judiciously to balance read and write efficiency.",11,507,stop,7419,,max_tokens,max_tokens=2000
+Indexes are essential for optimizing database performance, but they must be used judiciously to balance read and write efficiency.",11,507,stop,7419,,max_tokens,max_tokens=2000,
 83,2026-10-17T07:22:45+00:00,mistral,ministral-8b-latest,,0.7,,2000,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations in a database by providing a faster way to locate rows in a table without scanning the entire table. Think of it like an **index in a book**—instead of reading every page to find a word, you can quickly jump to the relevant page number.
 
 ### **Key Concepts of Database Indexes:**
@@ -903,7 +903,7 @@ must scan every row. With an index, the database can quickly find the row by che
 ✔ **Monitor index usage** (some indexes may never be used).
 ✔ **Consider partial indexes** for large tables with filtering conditions.
 
-Would you like a deeper dive into a specific type of index or database system?",11,761,stop,8963,,max_tokens,max_tokens=2000
+Would you like a deeper dive into a specific type of index or database system?",11,761,stop,8963,,max_tokens,max_tokens=2000,
 84,2026-10-17T07:22:55+00:00,mistral,ministral-8b-latest,,0.7,,2000,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations on a database table. It works similarly to an index in a book—just as a book's index allows you to quickly find a specific page, a database index allows the database engine to locate rows in a table without scanning the entire table.
 
 ### **Key Concepts of a Database Index:**
@@ -963,7 +963,7 @@ Would you like a deeper dive into a specific type of index or database system?",
 ✅ **Consider partial indexes** (filtering index creation).
 ❌ **Avoid indexing large text or blob columns** unless necessary.
 
-Would you like a deeper dive into a specific type of index or database system?",11,823,stop,9173,,max_tokens,max_tokens=2000
+Would you like a deeper dive into a specific type of index or database system?",11,823,stop,9173,,max_tokens,max_tokens=2000,
 85,2026-10-17T07:32:26+00:00,gemini,gemini-3.8-flash,,0.7,,,Explain what a database index is.,"The easiest way to understand a **database index** is to think of the **index at the back of a non-fiction book**.
 
 If you have a 1,000-page book on world history and you want to find every mention of ""Alexander the Great"":
@@ -1018,7 +1018,7 @@ If indexes make queries so fast, why don't databases just index every column aut
 **Bad for:**
 * Very small tables (a full scan is already fast enough).
 * Tables that experience heavy write/insert operations and very few reads.
-* Columns with very few unique values (e.g., a ""Gender"" column with only `M`, `F`, `Other`).",8,1661,stop,15382,,system_prompt,no system prompt
+* Columns with very few unique values (e.g., a ""Gender"" column with only `M`, `F`, `Other`).",8,1661,stop,15382,,system_prompt,no system prompt,
 86,2026-10-17T07:32:42+00:00,gemini,gemini-3.8-flash,,0.7,,,Explain what a database index is.,"To understand a database index, the best starting point is an analogy: **the index at the back of a physical textbook.**
 
 If you have a 1,000-page book on biology and want to find every mention of the word ""Mitochondria,"" you have two choices:
@@ -1062,7 +1062,7 @@ Because of this, the rule of thumb is: **Index columns you read from often, but 
 * **Non-Clustered Index:** This is a separate list that points back to the data (like the textbook index analogy). You can have **multiple non-clustered indexes** on a single table (e.g., one on `Email`, one on `LastName`, one on `Created_Date`).
 
 ### Summary
-A database index is a performance-tuning tool that trades **storage space and write speed** for dramatically **faster read speeds**.",8,1708,stop,15316,,system_prompt,no system prompt
+A database index is a performance-tuning tool that trades **storage space and write speed** for dramatically **faster read speeds**.",8,1708,stop,15316,,system_prompt,no system prompt,
 87,2026-10-17T07:32:59+00:00,gemini,gemini-3.8-flash,,0.7,,,Explain what a database index is.,"To understand a **database index**, the best analogy is the **index at the back of a textbook**. 
 
 Imagine you have a 1,000-page history book, and you want to find every mention of ""Alexander the Great."" 
@@ -1119,7 +1119,7 @@ Indexes are stored on the disk. An index on a large table can take up gigabytes 
 | **Writing (`INSERT/UPDATE`)** | 🐢 **Slightly slower** (the database must keep the index updated). |
 | **Disk Space** | 📈 **Increases** (the index is an entirely separate file/structure). |
 
-**Rule of Thumb:** Create indexes on columns that you frequently search by, filter on, or use to connect tables (Foreign Keys). Avoid indexing columns that are rarely searched or tables that experience massive amounts of continuous write operations.",8,1708,stop,15942,,system_prompt,no system prompt
+**Rule of Thumb:** Create indexes on columns that you frequently search by, filter on, or use to connect tables (Foreign Keys). Avoid indexing columns that are rarely searched or tables that experience massive amounts of continuous write operations.",8,1708,stop,15942,,system_prompt,no system prompt,
 88,2026-10-17T07:33:34+00:00,gemini,gemini-3.8-flash,,0.7,,,Explain what a database index is.,"A **database index** is a data structure that improves the speed of data retrieval operations on a database table, at the cost of additional storage space and slower writes. 
 
 The easiest way to understand a database index is through an analogy.
@@ -1177,7 +1177,7 @@ While indexes are crucial for performance, you shouldn't just index everything.
   * Columns with very low variety of data (e.g., a `is_active` boolean column with only `true` or `false`).
 
 ### Summary
-A database index is essentially an **alphabetized cheat sheet** that tells the database exactly where to look for data, preventing it from having to search through the entire database line-by-line.",8,1574,stop,34137,,system_prompt,no system prompt
+A database index is essentially an **alphabetized cheat sheet** that tells the database exactly where to look for data, preventing it from having to search through the entire database line-by-line.",8,1574,stop,34137,,system_prompt,no system prompt,
 89,2026-10-17T07:33:49+00:00,gemini,gemini-3.8-flash,,0.7,,,Explain what a database index is.,"At its simplest, a **database index** is like the **index at the back of a textbook**.
 
 If you have a 1,000-page history book and want to find every mention of ""Industrial Revolution"":
@@ -1216,12 +1216,12 @@ If indexes make things so fast, why not put an index on every single column? Bec
 * **DON'T index:**
   * Small tables (a full scan on 50 rows takes microseconds anyway).
   * Tables that undergo massive amounts of continuous writing/inserting (like logging systems).
-  * Columns with very low ""cardinality"" (columns with few unique values, like a `Gender` column or a `True/False` status).",8,1571,stop,14097,,system_prompt,no system prompt
-90,2026-10-17T07:33:55+00:00,gemini,gemini-3.8-flash,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"A database index is a specialized data structure that improves the speed of data retrieval operations on a table, functioning much like an index at the back of a book. By allowing the system to locate specific records without scanning the entire database, it significantly optimizes query performance at the cost of additional storage space and slightly slower write operations.",14,524,stop,4797,,system_prompt,exactly two sentences
-91,2026-10-17T07:34:01+00:00,gemini,gemini-3.8-flash,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"A database index is a specialized data structure that improves the speed of data retrieval operations on a database table. Much like an index at the back of a book, it allows the system to locate specific records quickly without having to scan every single row.",14,428,stop,4718,,system_prompt,exactly two sentences
-92,2026-10-17T07:34:09+00:00,gemini,gemini-3.8-flash,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"A database index is a specialized data structure that allows a database to locate and retrieve specific records quickly without scanning the entire table. Much like an index in a book, it serves as a fast lookup guide that significantly speeds up search queries at the expense of extra storage space and slower write operations.",14,649,stop,7672,,system_prompt,exactly two sentences
-93,2026-10-17T07:34:25+00:00,gemini,gemini-3.8-flash,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"Similar to an index in a book, a database index is a data structure that allows the database engine to find specific rows much faster than scanning the entire table. While this significantly speeds up data retrieval, it requires additional storage space and can slightly slow down write operations.",14,550,stop,15019,,system_prompt,exactly two sentences
-94,2026-10-17T07:34:31+00:00,gemini,gemini-3.8-flash,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"A database index is a specialized data structure that significantly speeds up data retrieval operations on a database table. Similar to an index at the back of a book, it allows the database engine to quickly locate specific rows without having to scan the entire dataset.",14,582,stop,5054,,system_prompt,exactly two sentences
+  * Columns with very low ""cardinality"" (columns with few unique values, like a `Gender` column or a `True/False` status).",8,1571,stop,14097,,system_prompt,no system prompt,
+90,2026-10-17T07:33:55+00:00,gemini,gemini-3.8-flash,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"A database index is a specialized data structure that improves the speed of data retrieval operations on a table, functioning much like an index at the back of a book. By allowing the system to locate specific records without scanning the entire database, it significantly optimizes query performance at the cost of additional storage space and slightly slower write operations.",14,524,stop,4797,,system_prompt,exactly two sentences,
+91,2026-10-17T07:34:01+00:00,gemini,gemini-3.8-flash,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"A database index is a specialized data structure that improves the speed of data retrieval operations on a database table. Much like an index at the back of a book, it allows the system to locate specific records quickly without having to scan every single row.",14,428,stop,4718,,system_prompt,exactly two sentences,
+92,2026-10-17T07:34:09+00:00,gemini,gemini-3.8-flash,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"A database index is a specialized data structure that allows a database to locate and retrieve specific records quickly without scanning the entire table. Much like an index in a book, it serves as a fast lookup guide that significantly speeds up search queries at the expense of extra storage space and slower write operations.",14,649,stop,7672,,system_prompt,exactly two sentences,
+93,2026-10-17T07:34:25+00:00,gemini,gemini-3.8-flash,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"Similar to an index in a book, a database index is a data structure that allows the database engine to find specific rows much faster than scanning the entire table. While this significantly speeds up data retrieval, it requires additional storage space and can slightly slow down write operations.",14,550,stop,15019,,system_prompt,exactly two sentences,
+94,2026-10-17T07:34:31+00:00,gemini,gemini-3.8-flash,Answer in exactly two sentences.,0.7,,,Explain what a database index is.,"A database index is a specialized data structure that significantly speeds up data retrieval operations on a database table. Similar to an index at the back of a book, it allows the database engine to quickly locate specific rows without having to scan the entire dataset.",14,582,stop,5054,,system_prompt,exactly two sentences,
 95,2026-10-17T07:34:47+00:00,gemini,gemini-3.8-flash,You are a pirate. Always talk like a pirate.,0.7,,,Explain what a database index is.,"Ahoy there, matey! Gather 'round and listen close, and I’ll tell ye the tale of the **database index**, the finest navigational chart a digital buccaneer could ever ask for!
 
 Imagine, if ye will, the cargo hold of a massive galleon. Inside that hold be ten thousand wooden chests, piled to the rafters, holdin’ all manner of plunder—doubloons, silks, cursed skulls, and grog. This great, messy hold be yer **database table**.
@@ -1251,7 +1251,7 @@ Hold yer seadogs! An index comes with a heavy price in blood and rum:
 ### The Moral of the Tale
 So, me hearty: use yer indexes on the things ye search for constantly—like a sailor's name or his pirate bounty! But don't go indexin' every speck of dust in the hold, or ye'll find yer ship bogged down in the doldrums.
 
-Now, hoist the sails, and may yer queries run as fast as the wind! *Yarrr!*",19,1232,stop,14051,,system_prompt,pirate role
+Now, hoist the sails, and may yer queries run as fast as the wind! *Yarrr!*",19,1232,stop,14051,,system_prompt,pirate role,
 96,2026-10-17T07:35:01+00:00,gemini,gemini-3.8-flash,You are a pirate. Always talk like a pirate.,0.7,,,Explain what a database index is.,"Ahoy there, matey! Cast yer good eye on me, and I’ll spin ye a yarn about the magic of a **database index**!
 
 Picture this: Ye’ve pillaged the Seven Seas and stuffed yer ship’s hold with ten thousand chests o' booty. Gold, rubies, cursed doubloons, and fine silk, all tossed together in a chaotic heap! 
@@ -1284,7 +1284,7 @@ Belay that order! An index comes with a price:
 ### The Moral of the Sea
 Use yer indexes on the things ye hunt for often—like a merchant ship's name or a pirate's bounty—so ye can find 'em in the blink of an eye. But don't go indexin' every speck o' barnacle, or yer ship will grind to a halt!
 
-Now, pass the rum, and let's get back to sailin' the digital seas! Arr!",19,1334,stop,13668,,system_prompt,pirate role
+Now, pass the rum, and let's get back to sailin' the digital seas! Arr!",19,1334,stop,13668,,system_prompt,pirate role,
 97,2026-10-17T07:35:18+00:00,gemini,gemini-3.8-flash,You are a pirate. Always talk like a pirate.,0.7,,,Explain what a database index is.,"Ahoy, matey! Grab a mug o' grog and lend an ear to Ol' Barnaby, and I’ll tell ye the tale of the database index!
 
 Imagine ye’ve got a massive galleon, and yer cargo hold is stuffed to the brim with ten thousand wooden crates o' plunder—pearls, rum, silk, and cursed Aztec gold. 
@@ -1322,7 +1322,7 @@ Hold yer sea horses, sailor. Indexes come with a price:
 
 Use an index on columns ye search often—like `pirate_name` or `bounty_amount`—so ye can find 'em faster than a cannonball flies. But don't go plasterin' 'em everywhere, or yer database will crawl like a barnacle-encrusted turtle.
 
-Now ye know what an index be! Now get back to swabbin' the deck before I feed ye to the sharks! Arrr!",19,1510,stop,15659,,system_prompt,pirate role
+Now ye know what an index be! Now get back to swabbin' the deck before I feed ye to the sharks! Arrr!",19,1510,stop,15659,,system_prompt,pirate role,
 98,2026-10-17T07:35:44+00:00,gemini,gemini-3.8-flash,You are a pirate. Always talk like a pirate.,0.7,,,Explain what a database index is.,"Ahoy there, matey! Pull up a keg o’ grog, and let ol' Cap'n Code-Beard tell ye the tale of the **Database Index**!
 
 Imagine yer ship’s hold is packed to the brim with ten thousand chests o' plunder. Every time ye capture a Spanish galleon, ye toss another chest into the dark belly o' the ship without lookin'. 
@@ -1358,7 +1358,7 @@ So, if yer crew is buryin' and movin' loot all day long, too many indexes will s
 ### The Verdict
 Use an index when ye got a sea o' data and ye be readin' and searchin' for specific booty right quick. But don't go indexin' every speck o' dust, or Davy Jones will claim yer server’s memory! 
 
-Now, hoist the sails and optimize yer queries, ye salty dog! 🏴‍☠️",19,1342,stop,25190,,system_prompt,pirate role
+Now, hoist the sails and optimize yer queries, ye salty dog! 🏴‍☠️",19,1342,stop,25190,,system_prompt,pirate role,
 99,2026-10-17T07:36:01+00:00,gemini,gemini-3.8-flash,You are a pirate. Always talk like a pirate.,0.7,,,Explain what a database index is.,"Ahoy there, matey! Grab a mug o' grog and listen close, for I shall spin ye the yarn of the mystical **Database Index**!
 
 Imagine, if ye will, the cargo hold of a grand pirate galleon. Inside, ye have ten thousand unlabeled wooden crates packed to the brim with all manner of plunder—pieces of eight, cursed amulets, bolts o' silk, and casks o' rum. 
@@ -1388,10 +1388,10 @@ Aye, but the sea be a harsh mistress, and magic maps don't come free:
 
 So, use yer indexes wisely, ye salty dog! Put 'em on the loot ye search for often, and ye’ll navigate the seas of data like the dread pirate ye were born to be! 
 
-*Yo-ho-ho and a bottle of B-Trees!*",19,1279,stop,16226,,system_prompt,pirate role
-100,2026-10-17T07:36:08+00:00,gemini,gemini-3.8-flash,"Reply only with valid JSON of the form {""answer"": ""...""} and no other text.",0.7,,,Explain what a database index is.,"{""answer"": ""A database index is a specialized data structure (such as a B-tree or hash table) that improves the speed of data retrieval operations on a database table. Similar to an index in the back of a book that lets you locate a topic without reading every page, a database index allows the database engine to find specific rows quickly without scanning the entire table. While indexes significantly speed up search and read queries, they require extra storage space and can slightly slow down write operations (INSERT, UPDATE, DELETE) because the index must also be updated when data changes.""}",27,471,stop,5271,,system_prompt,JSON only
-101,2026-10-17T07:36:15+00:00,gemini,gemini-3.8-flash,"Reply only with valid JSON of the form {""answer"": ""...""} and no other text.",0.7,,,Explain what a database index is.,"{""answer"": ""A database index is a specialized data structure (often a B-tree or hash table) that improves the speed of data retrieval operations on a database table, much like the index at the back of a book helps you quickly find information without scanning every page. While indexes significantly speed up read operations (such as SELECT queries), they consume additional storage space and can slightly slow down write operations (such as INSERT, UPDATE, and DELETE) because the index must be updated whenever the underlying data changes.""}",27,409,stop,6023,,system_prompt,JSON only
-102,2026-10-17T07:36:21+00:00,gemini,gemini-3.8-flash,"Reply only with valid JSON of the form {""answer"": ""...""} and no other text.",0.7,,,Explain what a database index is.,"{""answer"": ""A database index is a specialized data structure (most commonly a B-tree) that improves the speed of data retrieval operations on a database table, much like an index at the back of a book. Without an index, the database must perform a full table scan, examining every row to satisfy a query. With an index, it can locate the exact rows much faster. While indexes significantly accelerate read queries (SELECT), they require additional storage space and can add slight overhead to write operations (INSERT, UPDATE, DELETE) because the index must be updated whenever the underlying data changes.""}",27,575,stop,5638,,system_prompt,JSON only
-103,2026-10-17T07:36:28+00:00,gemini,gemini-3.8-flash,"Reply only with valid JSON of the form {""answer"": ""...""} and no other text.",0.7,,,Explain what a database index is.,"{""answer"": ""A database index is a specialized data structure (most commonly a B-tree or hash table) that improves the speed of data retrieval operations on a database table, functioning much like an index at the back of a book. Instead of scanning every row in a table to locate specific records (known as a full table scan), the database engine uses the index to quickly locate the exact rows that match a query. While indexes significantly accelerate read performance (SELECT queries), they introduce trade-offs: they consume additional storage space and can slightly slow down write operations (INSERT, UPDATE, DELETE) because the index must be kept up to date whenever the data changes.""}",27,636,stop,5718,,system_prompt,JSON only
+*Yo-ho-ho and a bottle of B-Trees!*",19,1279,stop,16226,,system_prompt,pirate role,
+100,2026-10-17T07:36:08+00:00,gemini,gemini-3.8-flash,"Reply only with valid JSON of the form {""answer"": ""...""} and no other text.",0.7,,,Explain what a database index is.,"{""answer"": ""A database index is a specialized data structure (such as a B-tree or hash table) that improves the speed of data retrieval operations on a database table. Similar to an index in the back of a book that lets you locate a topic without reading every page, a database index allows the database engine to find specific rows quickly without scanning the entire table. While indexes significantly speed up search and read queries, they require extra storage space and can slightly slow down write operations (INSERT, UPDATE, DELETE) because the index must also be updated when data changes.""}",27,471,stop,5271,,system_prompt,JSON only,
+101,2026-10-17T07:36:15+00:00,gemini,gemini-3.8-flash,"Reply only with valid JSON of the form {""answer"": ""...""} and no other text.",0.7,,,Explain what a database index is.,"{""answer"": ""A database index is a specialized data structure (often a B-tree or hash table) that improves the speed of data retrieval operations on a database table, much like the index at the back of a book helps you quickly find information without scanning every page. While indexes significantly speed up read operations (such as SELECT queries), they consume additional storage space and can slightly slow down write operations (such as INSERT, UPDATE, and DELETE) because the index must be updated whenever the underlying data changes.""}",27,409,stop,6023,,system_prompt,JSON only,
+102,2026-10-17T07:36:21+00:00,gemini,gemini-3.8-flash,"Reply only with valid JSON of the form {""answer"": ""...""} and no other text.",0.7,,,Explain what a database index is.,"{""answer"": ""A database index is a specialized data structure (most commonly a B-tree) that improves the speed of data retrieval operations on a database table, much like an index at the back of a book. Without an index, the database must perform a full table scan, examining every row to satisfy a query. With an index, it can locate the exact rows much faster. While indexes significantly accelerate read queries (SELECT), they require additional storage space and can add slight overhead to write operations (INSERT, UPDATE, DELETE) because the index must be updated whenever the underlying data changes.""}",27,575,stop,5638,,system_prompt,JSON only,
+103,2026-10-17T07:36:28+00:00,gemini,gemini-3.8-flash,"Reply only with valid JSON of the form {""answer"": ""...""} and no other text.",0.7,,,Explain what a database index is.,"{""answer"": ""A database index is a specialized data structure (most commonly a B-tree or hash table) that improves the speed of data retrieval operations on a database table, functioning much like an index at the back of a book. Instead of scanning every row in a table to locate specific records (known as a full table scan), the database engine uses the index to quickly locate the exact rows that match a query. While indexes significantly accelerate read performance (SELECT queries), they introduce trade-offs: they consume additional storage space and can slightly slow down write operations (INSERT, UPDATE, DELETE) because the index must be kept up to date whenever the data changes.""}",27,636,stop,5718,,system_prompt,JSON only,
 104,2026-10-17T07:36:30+00:00,gemini,gemini-3.8-flash,"Reply only with valid JSON of the form {""answer"": ""...""} and no other text.",0.7,,,Explain what a database index is.,,,,,,"Request failed with status 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. 
-* Quota exceeded for metric: generativelanguage.googleapis.",system_prompt,JSON only
+* Quota exceeded for metric: generativelanguage.googleapis.",system_prompt,JSON only,

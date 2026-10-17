@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { errorText, getProviders, getRuns, sendRun } from './api.js'
+import { errorText, getProviders, getRuns, sendRun, sendRunStream } from './api.js'
 import SettingsPanel from './components/SettingsPanel.jsx'
 import AnswerView from './components/AnswerView.jsx'
 import RunsTable from './components/RunsTable.jsx'
@@ -21,7 +21,9 @@ export default function App() {
   const [providers, setProviders] = useState({})
   const [settings, setSettings] = useState(START_SETTINGS)
   const [question, setQuestion] = useState('')
+  const [stream, setStream] = useState(true) // show the answer as it is written
   const [loading, setLoading] = useState(false)
+  const [partial, setPartial] = useState('') // the answer so far, while streaming
   const [run, setRun] = useState(null)
   const [error, setError] = useState('')
   const [runs, setRuns] = useState([])
@@ -46,15 +48,19 @@ export default function App() {
     setLoading(true)
     setError('')
     setRun(null)
+    setPartial('')
     try {
-      const result = await sendRun({
+      const body = {
         provider: settings.provider,
         system_prompt: settings.systemPrompt,
         question,
         temperature: numberOrNull(settings.temperature),
         top_p: numberOrNull(settings.topP),
         max_tokens: numberOrNull(settings.maxTokens),
-      })
+      }
+      const result = stream
+        ? await sendRunStream(body, (text) => setPartial((soFar) => soFar + text))
+        : await sendRun(body)
       if (result.ok) {
         setRun(result.data)
       } else {
@@ -81,11 +87,17 @@ export default function App() {
               value={question}
               onChange={(event) => setQuestion(event.target.value)}
             />
-            <button onClick={send} disabled={loading || question.trim() === ''}>
-              {loading ? 'Sending...' : 'Send'}
-            </button>
+            <div className="send-row">
+              <button onClick={send} disabled={loading || question.trim() === ''}>
+                {loading ? 'Sending...' : 'Send'}
+              </button>
+              <label className="inline">
+                <input type="checkbox" checked={stream} onChange={(event) => setStream(event.target.checked)} />
+                Stream the answer
+              </label>
+            </div>
           </section>
-          <AnswerView loading={loading} run={run} error={error} />
+          <AnswerView loading={loading} partial={partial} run={run} error={error} />
         </div>
       </div>
       <RunsTable runs={runs} />

@@ -11,7 +11,7 @@ DB_PATH = Path(__file__).resolve().parent.parent / "data" / "runs.db"
 COLUMNS = [
     "provider", "model", "system_prompt", "temperature", "top_p", "max_tokens",
     "question", "answer", "input_tokens", "output_tokens", "finish_reason",
-    "latency_ms", "error", "experiment", "setting_label",
+    "latency_ms", "ttft_ms", "error", "experiment", "setting_label",
 ]
 
 CREATE_TABLE = """
@@ -29,7 +29,8 @@ CREATE TABLE IF NOT EXISTS runs (
     input_tokens  INTEGER,
     output_tokens INTEGER,         -- Gemini: answer tokens + thinking tokens
     finish_reason TEXT,            -- 'stop', 'length' or 'other'
-    latency_ms    INTEGER,
+    latency_ms    INTEGER,         -- whole request, from sending to the last token
+    ttft_ms       INTEGER,         -- time to first token; only filled when streaming
     error         TEXT,            -- redacted error message; failed sends are saved too
     experiment    TEXT,            -- NULL for sends from the UI; set by replay.py
     setting_label TEXT             -- e.g. 'temp=0.0'; set by replay.py
@@ -54,9 +55,12 @@ def connect():
 
 
 def init_db():
-    """Create the table if it does not exist yet."""
+    """Create the table if it does not exist yet, and add columns that older databases lack."""
     with connect() as connection:
         connection.execute(CREATE_TABLE)
+        existing = [row["name"] for row in connection.execute("PRAGMA table_info(runs)")]
+        if "ttft_ms" not in existing:  # added with streaming; the first version of the table had none
+            connection.execute("ALTER TABLE runs ADD COLUMN ttft_ms INTEGER")
 
 
 def insert_run(**fields):
@@ -73,6 +77,18 @@ def insert_run(**fields):
     with connect() as connection:
         cursor = connection.execute(sql, [values[name] for name in names])
         row = connection.execute("SELECT * FROM runs WHERE id = ?", (cursor.lastrowid,)).fetchone()
+    return dict(row)
+
+
+def update_run(run_id, **fields):
+    """Change columns of a saved run (used when a streamed answer ends). Returns the updated row."""
+    unknown = set(fields) - set(COLUMNS)
+    if unknown:
+        raise ValueError(f"Unknown column(s): {sorted(unknown)}")
+    assignments = ", ".join(f"{name} = ?" for name in fields)
+    with connect() as connection:
+        connection.execute(f"UPDATE runs SET {assignments} WHERE id = ?", [*fields.values(), run_id])
+        row = connection.execute("SELECT * FROM runs WHERE id = ?", (run_id,)).fetchone()
     return dict(row)
 
 

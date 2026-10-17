@@ -14,9 +14,9 @@ Python 3.11 (venv in `env/`), FastAPI + uvicorn, SQLite (`sqlite3` from the stan
 - Phase 1 terminal chat: `python chat.py --provider mistral`.
 
 ## Structure
-- `backend/llm.py`: the only module that talks to providers; returns one common result.
+- `backend/llm.py`: the only module that talks to providers; returns one common result. `call_llm` gives the whole answer, `stream_llm` yields it piece by piece (adds `ttft_ms`, time to first token).
 - `backend/db.py`: the only module that touches SQLite (`data/runs.db`, table `runs`).
-- `backend/main.py`: FastAPI routes; glue between the UI, `llm.py` and `db.py`.
+- `backend/main.py`: FastAPI routes (`/api/providers`, `/api/run`, `/api/run/stream`, `/api/runs`); glue between the UI, `llm.py` and `db.py`.
 - `scripts/`: `replay.py` (N runs per setting into `runs`), `report.py` (report from `runs`).
 - `frontend/`: React UI; it only calls `/api/*`.
 - `report/`: the mini-report and the evidence rows.
@@ -26,7 +26,9 @@ Python 3.11 (venv in `env/`), FastAPI + uvicorn, SQLite (`sqlite3` from the stan
 - Plain, readable code; every module must be explainable by the author. No clever abstractions.
 - The UI never calls a provider; only `llm.py` does.
 - A parameter left empty is not sent (provider default) and is stored as NULL.
-- Failed sends are saved in `runs` with the `error` column.
+- Failed sends are saved in `runs` with the `error` column. A streamed send is saved when it starts (marked "Not finished") and updated when the answer ends, so a closed browser tab still leaves a record.
+- Gemini `gemini-3.8-flash` ignores temperature and top_p (per the docs); Mistral rejects temperature 0 with top_p below 1.
+- Use `uvicorn` without `--reload` when testing streaming: the reloader waits for open streams to close.
 - Keep the frontend, backend and database responsibilities separate.
 
 ## Rules
