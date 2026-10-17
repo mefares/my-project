@@ -1,6 +1,7 @@
 """The only module that touches SQLite. One table: runs (one row per send)."""
 
 import sqlite3
+from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -36,12 +37,20 @@ CREATE TABLE IF NOT EXISTS runs (
 """
 
 
+@contextmanager
 def connect():
-    """Open a connection. Rows can be read like dicts. One connection per call keeps it simple."""
+    """Open a connection for one `with` block: save the changes at the end, then close it.
+
+    Rows can be read like dicts. One short connection per call keeps it simple.
+    """
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     connection = sqlite3.connect(DB_PATH)
     connection.row_factory = sqlite3.Row
-    return connection
+    try:
+        yield connection
+        connection.commit()
+    finally:
+        connection.close()
 
 
 def init_db():
