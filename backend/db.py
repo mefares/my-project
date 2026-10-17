@@ -76,6 +76,15 @@ def insert_run(**fields):
     return dict(row)
 
 
+def delete_experiment(experiment, provider):
+    """Delete the rows of one experiment on one provider (used by replay.py --fresh). Returns how many."""
+    with connect() as connection:
+        cursor = connection.execute(
+            "DELETE FROM runs WHERE experiment = ? AND provider = ?", (experiment, provider)
+        )
+    return cursor.rowcount
+
+
 def list_runs(limit=50):
     """Latest runs first, as a list of dicts."""
     with connect() as connection:
